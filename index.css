@@ -1,0 +1,30 @@
+.container {
+  display: block;
+  margin: auto;
+  width: 80%;
+}
+
+.card {
+  display: flex;
+  justify-content: center;
+  border: 1px solid black;
+  box-shadow: 2px 2px 3px;
+  padding: 20px;
+  margin: 10px;
+}
+.cardContent {
+  display: block;
+  border: 1px solid black;
+  box-shadow: 2px 2px 3px;
+  padding: 20px;
+  margin: 10px;
+}
+
+.headerCard {
+  display: inline;
+}
+
+.cardGroup {
+  display: flex;
+  justify-content: center;
+}
