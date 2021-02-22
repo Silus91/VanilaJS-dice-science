@@ -9,8 +9,8 @@ const value = form.addEventListener('submit', (e) => {
 
     var result;
     var text = "";
-
     var i;
+
     for(var i=0; i < countValue; i++)
     {
         result  = Math.floor(Math.random() * 20) +1;
@@ -29,6 +29,36 @@ const value = form.addEventListener('submit', (e) => {
 
     getAvg();
 
+
+//   const wholeArr =  arr.sort(function(a, b){
+//       if(a == b) {
+//           console.log("ten sam wynik");
+//       } else if( a - b) {
+//           console.log("poprawny")
+//       }
+//     });
+//  console.log("consol",wholeArr);
+
+
+
+
+function count_duplicate(arr){
+ let counts = {}
+
+ for(let i =0; i < arr.length; i++){ 
+     if (counts[arr[i]]){
+     counts[arr[i]] += 1
+     } else {
+     counts[arr[i]] = 1
+     }
+    }  
+  console.log(counts)
+}
+
+count_duplicate(arr);
+
+// arrItem = { value: number, times: number}
+// wholeArr = [{arrItem},{arrItem]
 
   })
 
