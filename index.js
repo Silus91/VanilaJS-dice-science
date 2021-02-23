@@ -53,12 +53,20 @@ function count_duplicate(arr){
      }
     }  
   console.log(counts)
+  var result = Object.keys(counts).map((key) => [Number(key), counts[key]]);
+ // var result = Object.entries(counts);
+
+console.log(result);
+document.getElementById("demo2").innerHTML = result.map(res => { return`V${res[0]} T ${res[1]}  %${( 100 / arr.length * res[1]).toFixed(2)}`});
+
 }
 
 count_duplicate(arr);
 
-// arrItem = { value: number, times: number}
-// wholeArr = [{arrItem},{arrItem]
+
+
+
+
 
   })
 
