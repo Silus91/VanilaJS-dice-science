@@ -30,18 +30,6 @@ const value = form.addEventListener('submit', (e) => {
     getAvg();
 
 
-//   const wholeArr =  arr.sort(function(a, b){
-//       if(a == b) {
-//           console.log("ten sam wynik");
-//       } else if( a - b) {
-//           console.log("poprawny")
-//       }
-//     });
-//  console.log("consol",wholeArr);
-
-
-
-
 function count_duplicate(arr){
  let counts = {}
 
@@ -54,7 +42,6 @@ function count_duplicate(arr){
     }  
   console.log(counts)
   var result = Object.keys(counts).map((key) => [Number(key), counts[key]]);
- // var result = Object.entries(counts);
 
 console.log(result);
 document.getElementById("demo2").innerHTML = result.map(res => { return`V${res[0]} T ${res[1]}  %${( 100 / arr.length * res[1]).toFixed(2)}`});
