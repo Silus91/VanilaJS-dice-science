@@ -51,9 +51,5 @@ document.getElementById("demo2").innerHTML = result.map(res => { return`V${res[0
 count_duplicate(arr);
 
 
-
-
-
-
   })
 
