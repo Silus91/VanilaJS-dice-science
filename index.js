@@ -5,8 +5,6 @@ const value = form.addEventListener('submit', (e) => {
     const myForm = document.getElementById('countTimes');
     const countValue = myForm.value;
 
-
-
     var result;
     var text = "";
     var i;
@@ -40,14 +38,27 @@ function count_duplicate(arr){
      counts[arr[i]] = 1
      }
     }  
-  console.log(counts)
+  console.log(counts);
   var result = Object.keys(counts).map((key) => [Number(key), counts[key]]);
 
 console.log(result);
-document.getElementById("demo2").innerHTML = result.map(res => { return`V${res[0]} T ${res[1]}  %${( 100 / arr.length * res[1]).toFixed(2)}`});
+// document.getElementById("demo2").innerHTML = result.map(res => { return`V${res[0]} T ${res[1]}  %${( 100 / arr.length * res[1]).toFixed(2)}`});
+makeUl(result);
+document.getElementById('demo2').appendChild(makeUl(result))
 
 }
 
+function makeUl(arr) {
+    var list = document.createElement('ul');
+
+    for (var i = 0; i < arr.length; i++){
+        var item = document.createElement('li');
+        console.log(arr.length)
+        item.appendChild(document.createTextNode(`V${arr[i][0]} T${arr[i][1]}  %${( 100 / countValue * arr[i][1]).toFixed(2)}`));
+        list.appendChild(item);
+    }i
+    return list;
+}
 count_duplicate(arr);
 
 
