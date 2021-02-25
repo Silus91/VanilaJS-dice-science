@@ -1,17 +1,50 @@
-    var arr = [];
+   
+   const form = document.getElementById('form');
+   const dice = document.getElementById('dice');
+   const amount = document.getElementById('amount');
+   const arr = [];
+   
+   form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const countValue = amount.value;
+    const diceValue = dice.value;
+
+
+   })
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   var arr = [];
+
+
 
 const value = form.addEventListener('submit', (e) => {
     e.preventDefault();
     const myForm = document.getElementById('countTimes');
     const countValue = myForm.value;
 
-    var result;
     var text = "";
     var i;
 
+    // for (var i = 0; i < arr.length; i++){
+    //     var item = document.createElement('li');
+    //     console.log(arr.length)
+    //     item.appendChild(document.createTextNode(`V${arr[i][0]} T${arr[i][1]}  %${countPerCent(arr[i][1])}`));
+    //     list.appendChild(item);
+    // }i
+    // return list;
+
     for(var i=0; i < countValue; i++)
     {
-        result  = Math.floor(Math.random() * 20) +1;
+       const result  = Math.floor(Math.random() * 20) +1;
         arr.push(result);
         text += arr[i] + "<br>";
     }
@@ -60,7 +93,7 @@ function makeUl(arr) {
         console.log(arr.length)
         item.appendChild(document.createTextNode(`V${arr[i][0]} T${arr[i][1]}  %${countPerCent(arr[i][1])}`));
         list.appendChild(item);
-    }i
+    }
     return list;
 }
 count_duplicate(arr);
