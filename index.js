@@ -51,10 +51,14 @@ document.getElementById('demo2').appendChild(makeUl(result))
 function makeUl(arr) {
     var list = document.createElement('ul');
 
+    function countPerCent(arrVal) {
+        return (100 / countValue * arrVal).toFixed((2))
+    }
+
     for (var i = 0; i < arr.length; i++){
         var item = document.createElement('li');
         console.log(arr.length)
-        item.appendChild(document.createTextNode(`V${arr[i][0]} T${arr[i][1]}  %${( 100 / countValue * arr[i][1]).toFixed(2)}`));
+        item.appendChild(document.createTextNode(`V${arr[i][0]} T${arr[i][1]}  %${countPerCent(arr[i][1])}`));
         list.appendChild(item);
     }i
     return list;
