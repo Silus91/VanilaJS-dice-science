@@ -1,87 +1,79 @@
    
    const form = document.getElementById('form');
-   const dice = document.getElementById('dice');
-   const amount = document.getElementById('amount');
+   const dice = document.getElementById('diceValue');
+   const amount = document.getElementById('amountValue');
    const arr = [];
+
+   //mozliwe ze musi byc w eventlistnerzes
+   //document.getElementById('demo').appendChild(getRandomValues(countValue, diceValue))
+
    
-   form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const countValue = amount.value;
-    const diceValue = dice.value;
+   form.addEventListener('submit',setValues);
+   
+   function setValues(e){
+       e.preventDefault();
+       countValue = parseInt(amount.value);
+       diceValue = parseInt(dice.value);
+
+    
+    generateRandomValues(countValue,diceValue);
+
+    renderAvgValue(arr);
+    countDuplicate(arr);
+   }
 
 
-   })
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   var arr = [];
-
-
-
-const value = form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const myForm = document.getElementById('countTimes');
-    const countValue = myForm.value;
-
-    var text = "";
-    var i;
-
-    // for (var i = 0; i < arr.length; i++){
-    //     var item = document.createElement('li');
-    //     console.log(arr.length)
-    //     item.appendChild(document.createTextNode(`V${arr[i][0]} T${arr[i][1]}  %${countPerCent(arr[i][1])}`));
-    //     list.appendChild(item);
-    // }i
-    // return list;
-
-    for(var i=0; i < countValue; i++)
-    {
-       const result  = Math.floor(Math.random() * 20) +1;
-        arr.push(result);
-        text += arr[i] + "<br>";
+   function generateRandomValues(countValue, diceValue) {
+    for (let i = 0; i < countValue; i++) {
+        const randomValue = Math.floor(Math.random() * diceValue) +1;
+        arr.push(randomValue);
     }
-    document.getElementById("demo").innerHTML = text;
+    console.log(arr)
+    return arr;
+   }
+   
+function sumValues(total, num) {
+    return total + num;
+  }
 
-    function getSum(total, num) {
-        return total + num;
-      }
-
-    function getAvg() {
-        document.getElementById("demo1").innerHTML = arr.reduce(getSum,0) / countValue;
-    }
-
-    getAvg();
-
-
-function count_duplicate(arr){
- let counts = {}
-
- for(let i =0; i < arr.length; i++){ 
-     if (counts[arr[i]]){
-     counts[arr[i]] += 1
-     } else {
-     counts[arr[i]] = 1
-     }
-    }  
-  console.log(counts);
-  var result = Object.keys(counts).map((key) => [Number(key), counts[key]]);
-
-console.log(result);
-// document.getElementById("demo2").innerHTML = result.map(res => { return`V${res[0]} T ${res[1]}  %${( 100 / arr.length * res[1]).toFixed(2)}`});
-makeUl(result);
-document.getElementById('demo2').appendChild(makeUl(result))
-
+function renderAvgValue(arr){
+    document.getElementById("demo1").innerHTML = arr.reduce(sumValues,0) / countValue;
 }
 
-function makeUl(arr) {
+function renderValues(countValue, diceValue) {
+    const listUl = document.createElement('ul');
+    const itemLi = document.createElement('li');
+
+ 
+        // itemLi(appendChild(document.createTextNode(arr[i])));
+        // listUl.appendChild(itemLi);
+    
+    return listUl;
+}
+
+
+// function renderDuplicate(){
+
+// }
+
+
+
+function countDuplicate(arr){
+    let counts = {}
+   
+    for(let i =0; i < arr.length; i++){ 
+        if (counts[arr[i]]){
+        counts[arr[i]] += 1
+        } else {
+        counts[arr[i]] = 1
+        }
+       }  
+     var result = Object.keys(counts).map((key) => [Number(key), counts[key]]);
+   document.getElementById('demo2').appendChild(makeUl(result))
+   
+}
+
+   function makeUl(arr) {
     var list = document.createElement('ul');
 
     function countPerCent(arrVal) {
@@ -90,14 +82,8 @@ function makeUl(arr) {
 
     for (var i = 0; i < arr.length; i++){
         var item = document.createElement('li');
-        console.log(arr.length)
         item.appendChild(document.createTextNode(`V${arr[i][0]} T${arr[i][1]}  %${countPerCent(arr[i][1])}`));
         list.appendChild(item);
     }
     return list;
 }
-count_duplicate(arr);
-
-
-  })
-
