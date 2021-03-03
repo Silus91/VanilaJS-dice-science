@@ -4,8 +4,7 @@
    const amount = document.getElementById('amountValue');
    const arr = [];
 
-   //mozliwe ze musi byc w eventlistnerzes
-   //document.getElementById('demo').appendChild(getRandomValues(countValue, diceValue))
+   document.getElementById('demo').appendChild(renderValues(arr))
 
    
    form.addEventListener('submit',setValues);
@@ -40,24 +39,6 @@ function renderAvgValue(arr){
     document.getElementById("demo1").innerHTML = arr.reduce(sumValues,0) / countValue;
 }
 
-function renderValues(countValue, diceValue) {
-    const listUl = document.createElement('ul');
-    const itemLi = document.createElement('li');
-
- 
-        // itemLi(appendChild(document.createTextNode(arr[i])));
-        // listUl.appendChild(itemLi);
-    
-    return listUl;
-}
-
-
-// function renderDuplicate(){
-
-// }
-
-
-
 function countDuplicate(arr){
     let counts = {}
    
@@ -69,11 +50,11 @@ function countDuplicate(arr){
         }
        }  
      var result = Object.keys(counts).map((key) => [Number(key), counts[key]]);
-   document.getElementById('demo2').appendChild(makeUl(result))
+   document.getElementById('demo2').appendChild(renderDuplicateValues(result))
    
 }
 
-   function makeUl(arr) {
+   function renderDuplicateValues(arr) {
     var list = document.createElement('ul');
 
     function countPerCent(arrVal) {
@@ -86,4 +67,17 @@ function countDuplicate(arr){
         list.appendChild(item);
     }
     return list;
+}
+
+function renderValues(arr) {
+    var list = document.createElement('ul');
+
+    for (var i = 0; i < arr.length; i++){
+        var item = document.createElement('li');
+        item.appendChild(document.createTextNode(`${arr[i][0]}`));
+        list.appendChild(item);
+    }
+    
+    return list;
+    
 }
