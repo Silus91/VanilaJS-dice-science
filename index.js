@@ -77,7 +77,6 @@ function renderValues(arr) {
         item.appendChild(document.createTextNode(`${arr[i][0]}`));
         list.appendChild(item);
     }
-    
+
     return list;
-    
 }
