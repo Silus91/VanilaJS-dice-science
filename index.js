@@ -3,9 +3,6 @@
    const dice = document.getElementById('diceValue');
    const amount = document.getElementById('amountValue');
    const arr = [];
-
-   document.getElementById('demo').appendChild(renderValues(arr))
-
    
    form.addEventListener('submit',setValues);
    
@@ -19,8 +16,13 @@
 
     renderAvgValue(arr);
     countDuplicate(arr);
+    renderValues(arr);
    }
 
+
+   function renderValues(arr) {
+     return document.getElementById('demo').appendChild(setUlVal(arr));
+   }
 
    function generateRandomValues(countValue, diceValue) {
     for (let i = 0; i < countValue; i++) {
@@ -50,7 +52,8 @@ function countDuplicate(arr){
         }
        }  
      var result = Object.keys(counts).map((key) => [Number(key), counts[key]]);
-   document.getElementById('demo2').appendChild(renderDuplicateValues(result))
+    result.sort(function(a, b) { return b[1] - a[1]})
+   document.getElementById('demo2').appendChild(renderDuplicateValues(result));
    
 }
 
@@ -69,14 +72,14 @@ function countDuplicate(arr){
     return list;
 }
 
-function renderValues(arr) {
+function setUlVal(arr) {
     var list = document.createElement('ul');
 
     for (var i = 0; i < arr.length; i++){
         var item = document.createElement('li');
-        item.appendChild(document.createTextNode(`${arr[i][0]}`));
+        console.log(arr[i])
+        item.appendChild(document.createTextNode(arr[i]));
         list.appendChild(item);
     }
-
     return list;
 }
