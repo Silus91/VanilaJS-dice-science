@@ -10,6 +10,11 @@
        e.preventDefault();
        countValue = parseInt(amount.value);
        diceValue = parseInt(dice.value);
+       const parent = document.getElementById('demo');
+       while (parent.firstChild) {
+        parent.firstChild.remove()
+    }
+
 
     
     generateRandomValues(countValue,diceValue);
@@ -17,6 +22,8 @@
     renderAvgValue(arr);
     countDuplicate(arr);
     renderValues(arr);
+    document.getElementById('form').reset();
+
    }
 
 
