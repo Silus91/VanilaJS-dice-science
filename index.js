@@ -15,8 +15,6 @@
         parent.firstChild.remove()
     }
 
-
-    
     generateRandomValues(countValue,diceValue);
 
     renderAvgValue(arr);
@@ -25,7 +23,6 @@
     document.getElementById('form').reset();
 
    }
-
 
    function renderValues(arr) {
      return document.getElementById('demo').appendChild(setUlVal(arr));
@@ -64,7 +61,7 @@ function countDuplicate(arr){
    
 }
 
-   function renderDuplicateValues(arr) {
+function renderDuplicateValues(arr) {
     var list = document.createElement('ul');
 
     function countPerCent(arrVal) {
